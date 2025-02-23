@@ -7,8 +7,9 @@ import matplotlib.pyplot as plt
 from streamlit_extras.metric_cards import style_metric_cards
 
 # Configuration
-BACKEND_URL = "http://localhost:8000"
 st.set_page_config(page_title="HydroSync", page_icon="💧", layout="wide")
+BACKEND_URL = "http://localhost:8000"
+
 
 # Custom CSS for dark mode theme
 st.markdown("""
@@ -18,6 +19,51 @@ st.markdown("""
     
     /* Title styling */
     h1 { color: #bb86fc !important; border-bottom: 2px solid #6200ea; padding-bottom: 0.5rem; text-align: center; font-family: 'Arial', sans-serif; }
+    
+            
+    /* Modern gradient background */
+    .stApp { 
+        background: linear-gradient(160deg, #0f0c29, #302b63, #24243e);
+        color: #ffffff;
+    }
+    
+    /* Modern sidebar styling */
+    .stSidebar {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stSidebar .sidebar-content {
+        padding: 2rem 1rem;
+    }
+    
+    /* Glowing button effect */
+    .stButton>button {
+        background: linear-gradient(45deg, #7b4397, #dc2430);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 15px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(123, 67, 151, 0.3);
+    }
+    
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 36, 48, 0.4);
+    }
+    
+    /* Modern input styling */
+    .stSlider .thumb {
+        background: #7b4397 !important;
+    }
+    
+    .stSlider .track {
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+    
     
     /* Card styling */
     .metric-card { 
@@ -79,17 +125,31 @@ def main():
 def get_feature_inputs():
     features = []
     
-    # Environmental Factors
     with st.expander("Environmental Factors", expanded=True):
         col1, col2 = st.columns(2)
         with col1:
-            features.append(st.slider("Monsoon Intensity", 1, 5, 3))
-            features.append(st.slider("River Level", 1, 5, 2))
-            features.append(st.slider("Soil Moisture", 1, 5, 3))
+            features.append(st.slider("Rainfall (mm)", 0, 500, 50))
+            features.append(st.slider("Temperature (°C)", -20, 50, 25))
+            features.append(st.slider("Humidity (%)", 0, 100, 60))
+            features.append(st.slider("Wind Speed (km/h)", 0, 150, 20))
+            features.append(st.slider("Soil Moisture (%)", 0, 100, 40))
+            features.append(st.slider("River Level (m)", 0.0, 10.0, 2.5))
+            features.append(st.slider("Elevation (m)", 0, 5000, 100))
+            features.append(st.slider("Urbanization %", 0, 100, 30))
+            features.append(st.slider("Drainage Capacity", 1, 5, 3))
+            features.append(st.slider("Vegetation Cover", 1, 5, 3))
+
         with col2:
-            features.append(st.slider("Deforestation Rate", 1, 5, 4))
             features.append(st.slider("Snowmelt Rate", 1, 5, 2))
-            features.append(st.slider("Coastal Vulnerability", 1, 5, 3))
+            features.append(st.slider("Coastal Proximity", 1, 5, 3))
+            features.append(st.slider("Groundwater Level", 1, 5, 2))
+            features.append(st.slider("Rainfall 24h Trend", 1, 5, 3))
+            features.append(st.slider("Soil Type", 1, 5, 2))
+            features.append(st.slider("Land Use", 1, 5, 3))
+            features.append(st.slider("Topography", 1, 5, 2))
+            features.append(st.slider("Infrastructure Score", 1, 5, 3))
+            features.append(st.slider("Historical Floods", 0, 10, 2))
+            features.append(st.slider("Water Saturation", 1, 5, 2))
 
     return features
 
