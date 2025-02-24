@@ -42,6 +42,9 @@ A real-time flood prediction system combining IoT sensor data, satellite imagery
 3. NASA Global Precipitation Measurement
 4. Sentinel-1 SAR Satellite Imagery
 
+![WhatsApp Image 2025-02-24 at 11 36 01_786aa2f9](https://github.com/user-attachments/assets/eb0d41de-49eb-42c3-8900-18b963949403)
+
+
 ## ⚙️ Installation
 ```bash
 git clone https://github.com/karush2807/unit-13hacksync25.git
@@ -62,23 +65,10 @@ pip install -r requirements.txt
 | **Recall**                  | 0.87     |
 | **Evacuation Time Reduction** | 37%     |
 
-![Performance Dashboard](https://via.placeholder.com/800x400.png?text=FloodGuard+Performance+Metrics)
 
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- 🏆 **Kaggle Community** - For baseline models and datasets
-- 🛰️ **NASA Earthdata** - Satellite resources and hydrological data
-- 🤖 **TensorFlow/Keras Team** - Deep learning framework support
-
-## 🚀 Hackathon Ready Features
-
-- 🚀 Single-command setup
-- 📊 Performance metrics dashboard
-- 🔄 Real-time data streaming integration
 
 ---
 
